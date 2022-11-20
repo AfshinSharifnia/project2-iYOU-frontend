@@ -9,7 +9,7 @@ function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     async function getUser() {
-      const response = await fetch("/auth"); //PROXY??
+      const response = await fetch("/api/auth/"); //PROXY??
       if (response.ok) {
         const userData = await response.json();
         setUser(userData);

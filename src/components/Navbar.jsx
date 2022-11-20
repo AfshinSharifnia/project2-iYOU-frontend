@@ -2,6 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
+  const logout = async () => {
+    window.open("http://localhost:4000/api/auth/logout", "_self");
+    // const response = await fetch("/api/auth/logout"); //PROXY??
+    // if (response.ok) {
+    //   user = null;
+    // }
+  };
   return (
     <div className="navbar">
       <span className="logo">
@@ -19,7 +26,9 @@ const Navbar = ({ user }) => {
             />
           </li>
           <li className="listitem">Greg Gregger</li>
-          <li className="listitem">Logout</li>
+          <li className="listitem" onClick={logout}>
+            Logout
+          </li>
         </ul>
       ) : (
         <Link className="link" to="login">
