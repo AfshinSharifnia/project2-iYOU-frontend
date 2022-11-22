@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
+  ///
+  const [userInfo, setUserInfo] = useState({});
+  useEffect(() => {
+    async function getInfo() {
+      console.log("getinfo called");
+      const response = await fetch(
+        // `http://localhost:4000/api/profile/myProfile`,
+        `/api/profile/myProfile?userId=${user.basecampId}`, //pass basecampID
+      );
+      if (response.ok) {
+        const userInfoData = await response.json();
+        setUserInfo(userInfoData);
+        console.log("getinfo response: ", userInfo);
+      }
+    }
+    getInfo();
+  }, [user]);
+  ///
+
   const logout = async () => {
     window.open("http://localhost:4000/api/auth/logout", "_self");
     // const response = await fetch("/api/auth/logout"); //PROXY??
@@ -9,6 +28,7 @@ const Navbar = ({ user }) => {
     //   user = null;
     // }
   };
+
   return (
     <div className="navbar">
       <span className="logo">
@@ -19,13 +39,9 @@ const Navbar = ({ user }) => {
       {user ? (
         <ul className="list">
           <li className="listitem">
-            <img
-              src="https://images.unsplash.com/photo-1514845505178-849cebf1a91d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              alt="avatar"
-              className="avatar"
-            />
+            <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
           </li>
-          <li className="listitem">Greg Gregger</li>
+          <li className="listitem">{userInfo.name}</li>
           <li className="listitem" onClick={logout}>
             Logout
           </li>
