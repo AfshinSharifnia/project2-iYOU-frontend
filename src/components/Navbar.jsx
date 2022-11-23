@@ -10,11 +10,12 @@ const Navbar = ({ user }) => {
       const response = await fetch(
         // `http://localhost:4000/api/profile/myProfile`,
         `/api/profile/myProfile?userId=${user.basecampId}`, //pass basecampID
+        // `/api/profile/myProfile`,
       );
       if (response.ok) {
         const userInfoData = await response.json();
         setUserInfo(userInfoData);
-        console.log("getinfo response: ", userInfo);
+        console.log("getinfo response: ", userInfoData);
       }
     }
     getInfo();
@@ -36,7 +37,9 @@ const Navbar = ({ user }) => {
           iYou
         </Link>
       </span>
+      {/* CHECK IF USER IS LOGGED IN */}
       {user ? (
+        // IF USER IS LOGGED IN, SHOW AVATAR AND NAME
         <ul className="list">
           <li className="listitem">
             <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
@@ -47,6 +50,7 @@ const Navbar = ({ user }) => {
           </li>
         </ul>
       ) : (
+        // IF USER IS LOGGED OUT, SHOW LOG IN LINK
         <Link className="link" to="login">
           Login
         </Link>
