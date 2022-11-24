@@ -42,9 +42,16 @@ const Navbar = ({ user }) => {
         // IF USER IS LOGGED IN, SHOW AVATAR AND NAME
         <ul className="list">
           <li className="listitem">
-            <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
+            <Link className="link" to="profile">
+              <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
+            </Link>
           </li>
           <li className="listitem">{userInfo.name}</li>
+          <li className="listitem">
+            <Link className="link" to="edit">
+              Edit
+            </Link>
+          </li>
           <li className="listitem" onClick={logout}>
             Logout
           </li>

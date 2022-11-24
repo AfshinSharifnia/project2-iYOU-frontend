@@ -4,6 +4,8 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import EditProfile from "./pages/EditProfile";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,6 +27,8 @@ function App() {
         <Navbar user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit" element={<EditProfile user={user} />} />
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
