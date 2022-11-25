@@ -79,11 +79,7 @@ const EditProfile = ({ user }) => {
       noValidate
       autoComplete="off"
     >
-      <h2>Icebreaker Questions</h2>
-      <p>
-        Please take some time to answer the following questions. They will be
-        shared on your profile page.
-      </p>
+      <h1>Edit Profile</h1>
       <Box sx={{ "& > button": { m: 1 } }}>
         <LoadingButton
           size="small"
@@ -98,6 +94,29 @@ const EditProfile = ({ user }) => {
         </LoadingButton>
       </Box>
 
+      <h2>Links</h2>
+      {loadingPage ? (
+        <p>loading...</p>
+      ) : (
+        <TextField
+          id={"linkedInURL"}
+          label={"linkedInURL"}
+          maxRows={3}
+          defaultValue={profileDB.linkedInURL}
+          onChange={(event) =>
+            setAnswers((answers) => ({
+              ...answers,
+              linkedInURL: event.target.value,
+            }))
+          }
+        />
+      )}
+      <h2>Icebreaker Questions</h2>
+      <p>
+        Please take some time to answer the following questions. They will be
+        shared on your profile page.
+      </p>
+
       {loadingPage ? (
         <p>loading...</p>
       ) : (
@@ -107,7 +126,7 @@ const EditProfile = ({ user }) => {
             label={currQ}
             maxRows={3}
             defaultValue={profileDB[`q${index}`]}
-            value={answers[`q${index}`]}
+            // value={answers[`q${index}`]}
             onChange={(event) =>
               setAnswers((answers) => ({
                 ...answers,
