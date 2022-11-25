@@ -98,18 +98,45 @@ const EditProfile = ({ user }) => {
       {loadingPage ? (
         <p>loading...</p>
       ) : (
-        <TextField
-          id={"linkedInURL"}
-          label={"linkedInURL"}
-          maxRows={3}
-          defaultValue={profileDB.linkedInURL}
-          onChange={(event) =>
-            setAnswers((answers) => ({
-              ...answers,
-              linkedInURL: event.target.value,
-            }))
-          }
-        />
+        <Box>
+          <TextField
+            id={"linkedInURL"}
+            label={"LinkedIn URL"}
+            maxRows={3}
+            defaultValue={profileDB.linkedInURL}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                linkedInURL: event.target.value,
+              }))
+            }
+          />
+          <TextField
+            id={"githubURL"}
+            label={"Github URL"}
+            maxRows={3}
+            defaultValue={profileDB.githubURL}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                githubURL: event.target.value,
+              }))
+            }
+          />
+          {/* <TextField
+            id={"careerBlueprint"}
+            label={"Lifepath Career Blueprint"}
+            maxRows={30}
+            multiline
+            defaultValue={profileDB.careerBlueprint}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                careerBlueprint: event.target.value,
+              }))
+            }
+          /> */}
+        </Box>
       )}
       <h2>Icebreaker Questions</h2>
       <p>
