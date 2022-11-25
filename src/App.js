@@ -6,9 +6,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
+import Codewars from "./pages/Codewars";
 
-function App() {
-  const [user, setUser] = useState(null);
+
+function App() {git status
   useEffect(() => {
     async function getUser() {
       const response = await fetch("/api/auth/"); //PROXY??
@@ -29,6 +31,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
+
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
