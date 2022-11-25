@@ -23,9 +23,9 @@ function Dashboard({ user }) {
   return (
     <div>
       <h1> Dashboard</h1>
-      <p> LinkedIn : {profileDB.firstName}</p>
-      <p> Github: {profileDB.firstName}</p>
-      <p> Codewars: {profileDB.firstName}</p>
+      <p> LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a></p>
+      <p> Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a></p>
+      {/* <p> Codewars: {profileDB.firstName}</p> */}
     </div>
   );
 }

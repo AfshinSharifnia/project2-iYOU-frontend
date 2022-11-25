@@ -33,7 +33,7 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       <span className="logo">
-        <Link className="link" to="/">
+        <Link className="link" to="/dashboard">
           iYou
         </Link>
       </span>
