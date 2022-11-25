@@ -7,10 +7,9 @@ import { useEffect, useState } from "react";
 import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
-import Codewars from "./pages/Codewars";
 
-
-function App() {git status
+function App() {
+  const [user, setUser] = useState(null);
   useEffect(() => {
     async function getUser() {
       const response = await fetch("/api/auth/"); //PROXY??
