@@ -18,7 +18,7 @@ const Navbar = ({ user }) => {
         console.log("getinfo response: ", userInfoData);
       }
     }
-   if (user) getInfo();
+    if (user) getInfo();
   }, [user]);
   ///
 

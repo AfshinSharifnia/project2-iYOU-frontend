@@ -5,8 +5,10 @@ import SaveIcon from "@mui/icons-material/Save";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 const EditProfile = ({ user }) => {
-  // TO DO: USE EFFECT ON PAGE LOAD TO GET QUESTION ANSWERS FROM DB AND POPULATE FIELDS
+  // loading for save button
   const [loading, setLoading] = React.useState(true);
+  // loadingPage to check for fetch return before rendering textfields with defaultvalues
+  const [loadingPage, setLoadingPage] = React.useState(true);
   const [answers, setAnswers] = React.useState({});
   const [profileDB, setProfileDB] = React.useState({});
 
@@ -21,6 +23,7 @@ const EditProfile = ({ user }) => {
         const profileDBData = await response.json();
         setProfileDB(profileDBData);
         console.log("getprofiledb response: ", profileDBData);
+        setLoadingPage(false);
       }
       for (const key in profileDB) {
         setAnswers((qanswers) => `{...qanswers, ${key}: ${profileDB[key]}}`);
@@ -46,6 +49,16 @@ const EditProfile = ({ user }) => {
     }
   }
 
+  /*
+  TO DO:
+
+  - show edit page on first log in (after record is created)
+  - SECTIONS: User Info, Icebreaker Questions, Links and Career Blueprint
+  - POSSIBLE** - photos upload??
+
+  */
+
+  // ICEBREAKER QUESTIONS ARRAY
   const questions = [
     `What’s something new or interesting you’ve learned recently?`,
     `What was your favorite recent meal and why?`,
@@ -66,12 +79,7 @@ const EditProfile = ({ user }) => {
       noValidate
       autoComplete="off"
     >
-      <h2>Icebreaker Questions</h2>
-
-      <p>
-        Please take some time to answer the following questions. They will be
-        shared on your profile page.
-      </p>
+      <h1>Edit Profile</h1>
       <Box sx={{ "& > button": { m: 1 } }}>
         <LoadingButton
           size="small"
@@ -85,21 +93,49 @@ const EditProfile = ({ user }) => {
           Save
         </LoadingButton>
       </Box>
-      {questions.map((currQ, index) => (
+
+      <h2>Links</h2>
+      {loadingPage ? (
+        <p>loading...</p>
+      ) : (
         <TextField
-          id={`q${index}`}
-          label={currQ}
+          id={"linkedInURL"}
+          label={"linkedInURL"}
           maxRows={3}
-          defaultValue={profileDB[`q${index}`]}
-          value={answers[`q${index}`]}
+          defaultValue={profileDB.linkedInURL}
           onChange={(event) =>
             setAnswers((answers) => ({
               ...answers,
-              [`q${index}`]: event.target.value,
+              linkedInURL: event.target.value,
             }))
           }
         />
-      ))}
+      )}
+      <h2>Icebreaker Questions</h2>
+      <p>
+        Please take some time to answer the following questions. They will be
+        shared on your profile page.
+      </p>
+
+      {loadingPage ? (
+        <p>loading...</p>
+      ) : (
+        questions.map((currQ, index) => (
+          <TextField
+            id={`q${index}`}
+            label={currQ}
+            maxRows={3}
+            defaultValue={profileDB[`q${index}`]}
+            // value={answers[`q${index}`]}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                [`q${index}`]: event.target.value,
+              }))
+            }
+          />
+        ))
+      )}
     </Box>
   );
 };
