@@ -25,7 +25,6 @@ function Dashboard({ user }) {
       <h1> Dashboard</h1>
       <p> LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a></p>
       <p> Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a></p>
-      {/* <p> Codewars: {profileDB.firstName}</p> */}
     </div>
   );
 }
