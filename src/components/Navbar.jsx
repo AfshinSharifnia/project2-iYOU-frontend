@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavbarLogo from '../img/HeaderLogo.png'
 
 const Navbar = ({ user }) => {
   ///
@@ -32,11 +33,12 @@ const Navbar = ({ user }) => {
 
   return (
     <div className="navbar">
-      <span className="logo">
-        <Link className="link" to="/">
-          iYou
+     
+        <Link to="/">
+          <img className="iyoulogo" src={NavbarLogo} alt="iyou" />
         </Link>
-      </span>
+    
+     
       {/* CHECK IF USER IS LOGGED IN */}
       {user ? (
         // IF USER IS LOGGED IN, SHOW AVATAR AND NAME
@@ -59,7 +61,7 @@ const Navbar = ({ user }) => {
       ) : (
         // IF USER IS LOGGED OUT, SHOW LOG IN LINK
         <Link className="link" to="login">
-          Login
+          
         </Link>
       )}
     </div>
