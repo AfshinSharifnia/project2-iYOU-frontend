@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
         console.log("getinfo response: ", userInfoData);
       }
     }
-    getInfo();
+    if (user) getInfo();
   }, [user]);
   ///
 
