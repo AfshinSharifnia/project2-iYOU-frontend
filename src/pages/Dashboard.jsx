@@ -22,25 +22,29 @@ function Dashboard({ user }) {
 
   return (
     <div>
-      <h1> Dashboard</h1>
-      <p>
+      <h1 className="dashboard"> Dashboard</h1>
+      <p className="linkedIn">
         {" "}
         LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
       </p>
-      <p>
+      <p className="github">
         {" "}
         Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a>
       </p>
-      <p>
+      <p className="lumina">
         {" "}
         Lumina : <a href={profileDB.luminaURL}>{profileDB.luminaURL}</a>
       </p>
-      <p> Schedule :</p>
-      <p> Events :</p>
-      <p> Tech Slides :</p>
-      <p> Homework :</p>
-      <p> Daily Challenge :</p>
-      <p> Survey :</p>
+      <p className="basecamp">
+        {" "}
+        Basecamp : <a href={profileDB.basecampURL}>{profileDB.basecampURL}</a>
+      </p>
+      <p className="schedule"> Schedule :</p>
+      <p className="events"> Events :</p>
+      <p className="tech-slides"> Tech Slides :</p>
+      <p className="homework"> Homework :</p>
+      <p className="daily-challenge"> Daily Challenge :</p>
+      <p className="survey"> Survey :</p>
     </div>
   );
 }
