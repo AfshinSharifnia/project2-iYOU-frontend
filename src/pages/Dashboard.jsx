@@ -23,8 +23,24 @@ function Dashboard({ user }) {
   return (
     <div>
       <h1> Dashboard</h1>
-      <p> LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a></p>
-      <p> Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a></p>
+      <p>
+        {" "}
+        LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
+      </p>
+      <p>
+        {" "}
+        Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a>
+      </p>
+      <p>
+        {" "}
+        Lumina : <a href={profileDB.luminaURL}>{profileDB.luminaURL}</a>
+      </p>
+      <p> Schedule :</p>
+      <p> Events :</p>
+      <p> Tech Slides :</p>
+      <p> Homework :</p>
+      <p> Daily Challenge :</p>
+      <p> Survey :</p>
     </div>
   );
 }
