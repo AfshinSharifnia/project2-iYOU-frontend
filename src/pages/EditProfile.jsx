@@ -95,7 +95,8 @@ const EditProfile = ({ user }) => {
       </Box>
 
       <h2>Links</h2>
-      {loadingPage ? (
+      {
+      loadingPage ? (
         <p>loading...</p>
       ) : (
         <Box>
@@ -120,6 +121,18 @@ const EditProfile = ({ user }) => {
               setAnswers((answers) => ({
                 ...answers,
                 githubURL: event.target.value,
+              }))
+            }
+          />
+          <TextField
+            id={"luminaURL"}
+            label={"Lumina URL"}
+            maxRows={3}
+            defaultValue={profileDB.luminaURL}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                luminaURL: event.target.value,
               }))
             }
           />
