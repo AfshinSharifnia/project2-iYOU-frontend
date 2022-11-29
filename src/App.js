@@ -1,11 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
+import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
@@ -25,9 +24,8 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Navbar user={user} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
@@ -36,7 +34,7 @@ function App() {
 
           <Route
             path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
+            element={user ? <Navigate to="/" /> : <LoginPage />}
           />
         </Routes>
       </div>
