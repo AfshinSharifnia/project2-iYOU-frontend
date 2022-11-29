@@ -24,15 +24,10 @@ function Dashboard({ user }) {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-
       <h1 className="dashboard"> Dashboard</h1>
 
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-
-
-        
-        <Box sx={{ display: "flex", flexDirection: "column", gap:6 }}>
-
+        <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
           <p className="linkedIn">
             LinkedIn :{" "}
             <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
@@ -50,22 +45,14 @@ function Dashboard({ user }) {
           </p>
         </Box>
 
-
-
-
         <Box sx={{ display: "flex", flexDirection: "column", gap: 6 }}>
-
           <AppLink text="Schedule" url="" />
           <AppLink text="Events" url="" />
           <AppLink text="Tech Slides" url="" />
           <AppLink text="Homework" url="" />
           <AppLink text="Daily Challenge" url="" />
           <AppLink text="Survey" url="" />
-
         </Box>
-
-
-
       </Box>
     </Box>
   );
