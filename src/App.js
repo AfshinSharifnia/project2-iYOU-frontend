@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,6 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+        <Navbar user={user} />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/profile" element={<Profile />} />
