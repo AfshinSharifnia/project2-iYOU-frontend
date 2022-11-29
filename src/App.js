@@ -25,16 +25,22 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Navbar user={user} />
+        {user ? <Navbar user={user} /> : <div />}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/"
+            element={user ? <Navigate to="/dashboard" /> : <LandingPage />}
+          />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
-          <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
+          />
 
           <Route
             path="/login"
-            element={user ? <Navigate to="/" /> : <LoginPage />}
+            element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
           />
         </Routes>
       </div>

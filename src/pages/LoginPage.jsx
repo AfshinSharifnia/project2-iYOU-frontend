@@ -14,7 +14,7 @@ const SignInPage = ({ user }) => {
       <Navbar user={user} />
       <div className="text-center m-5-auto">
         <h2>Sign in to iYOU!</h2>
-        <form action="/home">
+        <form action="/dashboard">
           <p>
             <label>Login with your Basecamp ID</label>
             <br />
