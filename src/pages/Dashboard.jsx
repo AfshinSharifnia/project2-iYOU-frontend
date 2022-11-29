@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Box } from "@mui/material";
+import AppLink from "../components/AppLink";
 
 function Dashboard({ user }) {
   const [profileDB, setProfileDB] = useState({});
@@ -21,31 +23,35 @@ function Dashboard({ user }) {
   }, [user]);
 
   return (
-    <div>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       <h1 className="dashboard"> Dashboard</h1>
-      <p className="linkedIn">
-        {" "}
-        LinkedIn : <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
-      </p>
-      <p className="github">
-        {" "}
-        Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a>
-      </p>
-      <p className="lumina">
-        {" "}
-        Lumina : <a href={profileDB.luminaURL}>{profileDB.luminaURL}</a>
-      </p>
-      <p className="basecamp">
-        {" "}
-        Basecamp : <a href={profileDB.basecampURL}>{profileDB.basecampURL}</a>
-      </p>
-      <p className="schedule"> Schedule :</p>
-      <p className="events"> Events :</p>
-      <p className="tech-slides"> Tech Slides :</p>
-      <p className="homework"> Homework :</p>
-      <p className="daily-challenge"> Daily Challenge :</p>
-      <p className="survey"> Survey :</p>
-    </div>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <p className="linkedIn">
+            LinkedIn :{" "}
+            <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
+          </p>
+          <p className="github">
+            Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a>
+          </p>
+          <p className="lumina">
+            Lumina : <a href={profileDB.luminaURL}>{profileDB.luminaURL}</a>
+          </p>
+          <p className="basecamp">
+            Basecamp :{" "}
+            <a href={profileDB.basecampURL}>{profileDB.basecampURL}</a>
+          </p>
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "row", gap: 6 }}>
+          <AppLink text="Schedule" url="" />
+          <AppLink text="Events" url="" />
+          <AppLink text="Tech Slides" url="" />
+          <AppLink text="Homework" url="" />
+          <AppLink text="Daily Challenge" url="" />
+          <AppLink text="Survey" url="" />
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
