@@ -43,6 +43,19 @@ function App() {
           
 
 
+          <Route path="/homepage" element={<HomePage user={user} />} />
+          <Route path="/about" element={<About />} />
+=======
+<<<<<<< HEAD
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
+=======
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
+          />
+>>>>>>> 0efa2564d5d5b49951d56748dbea1a513dbedb9a
+
+>>>>>>> main
           <Route
             path="/login"
             element={user ? <Navigate to="/dashboard" /> : <LoginPage />}

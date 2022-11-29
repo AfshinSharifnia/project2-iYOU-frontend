@@ -44,15 +44,15 @@ function Dashboard({ user }) {
             <a href={profileDB.basecampURL}>{profileDB.basecampURL}</a>
           </p>
         </Box>
+      </Box>
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <AppLink text="Schedule" url="" />
-          <AppLink text="Events" url="" />
-          <AppLink text="Tech Slides" url="" />
-          <AppLink text="Homework" url="" />
-          <AppLink text="Daily Challenge" url="" />
-          <AppLink text="Survey" url="" />
-        </Box>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <AppLink text="Schedule" url="" />
+        <AppLink text="Events" url="" />
+        <AppLink text="Tech Slides" url="" />
+        <AppLink text="Homework" url="" />
+        <AppLink text="Daily Challenge" url="" />
+        <AppLink text="Survey" url="" />
       </Box>
     </Box>
   );
