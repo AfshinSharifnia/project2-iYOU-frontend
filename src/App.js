@@ -29,9 +29,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
-          
-
-
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <LoginPage />}

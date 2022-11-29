@@ -214,3 +214,9 @@ form span {
 .home-page-title {
   color: #222
 }
+
+.dashboard {
+  color: blue;
+  font-size: 3rem;
+  padding-bottom: 30px;
+}
