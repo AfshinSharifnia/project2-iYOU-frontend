@@ -9,24 +9,10 @@ const AppLink = (props) => {
   const url = props.url;
 
   return (
-<Box sx={{display: "flex", flexDirection: "column"}}>
-<Card sx={{ padding: 1, backgroundColor: 'pink'}}>
-  <CardContent>
-   <Typography variant="h6"> {text} </Typography>
-  </CardContent>
-  <CardActions>
-    <Button size="small">{url}</Button>
-  </CardActions>
-</Card>
-</Box>
-
-  //   <Box sx={{ display: "flex", flexDirection: "column" }}>
-  //     <Box sx={{ padding: 1, backgroundColor: "cyan" }}>
-  //       <Typography variant="h6"> {text} </Typography>
-  //     </Box>
-  //     <Box>{url}</Box>
-  //   </Box>
-  // );
+    <Box sx={{ padding: 5, backgroundColor: "cyan" }}>
+      <Typography variant="body1">{text}</Typography>
+    </Box>
+  );
 };
 
 export default AppLink;
