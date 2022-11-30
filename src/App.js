@@ -6,6 +6,7 @@ import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Cohort from "./pages/Cohort";
 import AdminPage from "./pages/AdminPage"; //TEST
@@ -36,6 +37,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
           <Route path="/admin" element={<AdminPage user={user} />} /> //TEST
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/dashboard"
             element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
