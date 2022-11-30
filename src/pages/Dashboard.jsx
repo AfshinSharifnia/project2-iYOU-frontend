@@ -31,7 +31,6 @@ function Dashboard({ user }) {
             LinkedIn :{" "}
             <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
           </p>
-
           <p className="github">
             Github : <a href={profileDB.githubURL}>{profileDB.githubURL}</a>
           </p>
