@@ -1,7 +1,6 @@
 import React from "react";
-import '../profile.css';
-import '../App.css';
-
+import "./profile.css";
+import "../App.css";
 
 const Profile = () => {
   return (
