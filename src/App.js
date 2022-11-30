@@ -6,12 +6,9 @@ import EditProfile from "./pages/EditProfile";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
-<<<<<<< HEAD
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
-=======
 import Navbar from "./components/Navbar";
->>>>>>> 0efa2564d5d5b49951d56748dbea1a513dbedb9a
 
 function App() {
   const [user, setUser] = useState(null);
