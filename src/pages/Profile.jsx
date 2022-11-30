@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./profile.css";
 import "../App.css";
 
-const Profile = () => {
+const Profile = ({ user }) => {
+  // loadingPage to check for fetch return before rendering textfields with defaultvalues
+  const [loadingPage, setLoadingPage] = React.useState(true);
+  const [answers, setAnswers] = React.useState({});
+  const [profileDB, setProfileDB] = React.useState({});
+
+  // ON LOAD, GET DB PROFILE AND POPULATE ANSWERS
+  useEffect(() => {
+    async function getProfileDB() {
+      console.log("getProfileDB called");
+      const response = await fetch(
+        `/api/profile/myProfileDB?userId=${user.basecampId}`,
+      );
+      if (response.ok) {
+        const profileDBData = await response.json();
+        setProfileDB(profileDBData);
+        console.log("getprofiledb response: ", profileDBData);
+        console.log(profileDB);
+        console.log(profileDB.firstName);
+        setLoadingPage(false);
+      }
+    }
+    getProfileDB();
+  }, [user]);
+
   return (
     <div className="student-profile py-4">
       <div className="container">
@@ -14,7 +38,7 @@ const Profile = () => {
                   className="profile_img"
                   src="https://source.unsplash.com/600x300/?student"
                 />
-                <h3>Chelsea Mansoff</h3>
+                <h3>{profileDB.displayName}</h3>
               </div>
               <div className="card-body">
                 <p className="mb-0">
