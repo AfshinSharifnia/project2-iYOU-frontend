@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Box } from "@mui/material";
 import AppLink from "../components/AppLink";
+import PageBackground from '../assets/images/PageBackground.png';
 
 function Dashboard({ user }) {
   const [profileDB, setProfileDB] = useState({});
@@ -21,12 +22,11 @@ function Dashboard({ user }) {
     }
     if (user) getProfileDB();
   }, [user]);
-
+  
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <h1 className="dashboard"> Dashboard</h1>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <div style={HeadStyle}> 
+    <h1 className="dashboard"> Dashboard</h1>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center", marginRight: '78%'}}>
           <p className="linkedIn">
             LinkedIn :{" "}
             <a href={profileDB.linkedInURL}>{profileDB.linkedInURL}</a>
@@ -41,18 +41,23 @@ function Dashboard({ user }) {
             Basecamp :{" "}
             <a href={profileDB.basecampURL}>{profileDB.basecampURL}</a>
           </p>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", gap: 6 }}>
+        </Box>    
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center", marginLeft: "78%" }}>
           <AppLink text="Schedule" url="" />
           <AppLink text="Events" url="" />
           <AppLink text="Tech Slides" url="" />
           <AppLink text="Homework" url="" />
-          <AppLink text="Daily Challenge" url="" />
-          <AppLink text="Survey" url="" />
         </Box>
-      </Box>
-    </Box>
+      </div>
   );
 }
+
+const HeadStyle = {
+  width: '100vw',
+  height: '100vh',
+  background: `url(${PageBackground})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+};
 
 export default Dashboard;

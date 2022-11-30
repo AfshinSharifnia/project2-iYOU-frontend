@@ -32,7 +32,7 @@ const Navbar = ({ user }) => {
   };
 
   return (
-    <div className="navbar">
+    <header className="navbar">
       <Link to="/dashboard">
         <img className="iyoulogo" src={NavbarLogo} alt="iyou" />
       </Link>
@@ -60,7 +60,7 @@ const Navbar = ({ user }) => {
         // IF USER IS LOGGED OUT, SHOW LOG IN LINK
         <Link className="link" to="login"></Link>
       )}
-    </div>
+    </header>
   );
 };
 
