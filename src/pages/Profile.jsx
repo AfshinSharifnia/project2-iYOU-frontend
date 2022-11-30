@@ -60,14 +60,12 @@ const Profile = ({ user }) => {
               </div>
               <div className="card-body">
                 <p className="mb-0">
-                  <strong className="pr-1">Student ID:</strong>321000001
+                  <strong className="pr-1">Birthday:</strong>{profileDB.birthDate}
                 </p>
                 <p className="mb-0">
-                  <strong className="pr-1">className:</strong>4
+                  <strong className="pr-1">Pronouns:</strong>{profileDB.pronouns}
                 </p>
-                <p className="mb-0">
-                  <strong className="pr-1">Section:</strong>A
-                </p>
+               
               </div>
             </div>
           </div>
@@ -77,35 +75,69 @@ const Profile = ({ user }) => {
               <div className="card-body pt-0">
                 <table className="table table-bordered">
                   <tr>
-                    <th width="30%">{icebreakerQs[0]}</th>
-                    <td width="2%">:</td>
+                    <th width="300%">{icebreakerQs[0]}</th>
+                    <td width="10%">:</td>
                     <td>{profileDB.q0}</td>
                   </tr>
                   <tr>
-                    <th width="30%">Hometown</th>
-                    <td width="2%">:</td>
-                    <td>Edmonton</td>
+                    <th width="300%">{icebreakerQs[1]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q1}</td>
                   </tr>
                   <tr>
-                    <th width="30%">Favorite Food</th>
-                    <td width="2%">:</td>
-                    <td>Anything Asian Inspired</td>
+                    <th width="300%">{icebreakerQs[2]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q2}</td>
                   </tr>
                   <tr>
-                    <th width="30%">Background</th>
-                    <td width="2%">:</td>
-                    <td>Woman Empowerment</td>
+                    <th width="300%">{icebreakerQs[3]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q3}</td>
                   </tr>
                   <tr>
-                    <th width="30%">Age</th>
-                    <td width="2%">:</td>
-                    <td>39</td>
+                    <th width="300%">{icebreakerQs[4]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q4}</td>
                   </tr>
+                  <tr>
+                  <th width="300%">{icebreakerQs[5]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q5}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[6]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q6}</td>
+                    </tr>
+                    <tr> <th width="300%">{icebreakerQs[7]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q7}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[8]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q8}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[9]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q9}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[10]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q10}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[11]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q11}</td>
+                  </tr>
+                  <tr> <th width="300%">{icebreakerQs[12]}</th>
+                    <td width="10%">:</td>
+                    <td>{profileDB.q12}</td>
+                    </tr>
+
                 </table>
               </div>
             </div>
 
-            <div style={{ height: "26px" }}></div>
+            <div style={{ height: "15px" }}></div>
 
             <div className="card shadow-sm">
               <div className="card-header bg-transparent border-0">
