@@ -59,12 +59,19 @@ const EditProfile = ({ user }) => {
   */
 
   // ICEBREAKER QUESTIONS ARRAY
-  const questions = [
+  const icebreakerQs = [
     `What’s something new or interesting you’ve learned recently?`,
     `What was your favorite recent meal and why?`,
     `What’s your favorite self-care activity?`,
     `Where did you grow up?`,
     `What’s the best book you’ve ever read? Why?`,
+    `If you had to give a lecture on one thing, what would it be?`,
+    `What’s a favorite movie you always recommend to people? Why do you love it?`,
+    `What’s an unusual family or cultural tradition you have?`,
+    `What’s something people don’t know about you?`,
+    `What’s one thing that brings you energy and joy?`,
+    `What’s the most interesting place you’ve ever done a virtual meeting from?`,
+    `What is your favorite smell and why?`,
   ];
 
   return (
@@ -95,8 +102,7 @@ const EditProfile = ({ user }) => {
       </Box>
 
       <h2>Links</h2>
-      {
-      loadingPage ? (
+      {loadingPage ? (
         <p>loading...</p>
       ) : (
         <Box>
@@ -172,7 +178,7 @@ const EditProfile = ({ user }) => {
       {loadingPage ? (
         <p>loading...</p>
       ) : (
-        questions.map((currQ, index) => (
+        icebreakerQs.map((currQ, index) => (
           <TextField
             id={`q${index}`}
             label={currQ}
