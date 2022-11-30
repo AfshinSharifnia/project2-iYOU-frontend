@@ -1,16 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 
 const AppLink = (props) => {
   const text = props.text;
   const url = props.url;
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ padding: 1, backgroundColor: "cyan" }}>
-        <Typography variant="h6"> {text} </Typography>
-      </Box>
-      <Box>{url}</Box>
-    </Box>
+    <Card sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
+      <Typography variant="body1">{text}{url}</Typography>
+    </Card>
+    
   );
 };
 
