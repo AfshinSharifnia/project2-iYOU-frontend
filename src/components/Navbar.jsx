@@ -46,10 +46,19 @@ const Navbar = ({ user }) => {
               <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
             </Link>
           </li>
-          <li className="listitem">{userInfo.name}</li>
+          <li className="listitem">
+            <Link className="link" to="admin">
+              {userInfo.name}
+            </Link>
+          </li>
           <li className="listitem">
             <Link className="link" to="edit">
               Edit
+            </Link>
+          </li>
+          <li className="listitem">
+            <Link className="link" to="cohort">
+              Cohort
             </Link>
           </li>
           <li className="listitem" onClick={logout}>

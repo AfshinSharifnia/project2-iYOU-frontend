@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
+import Cohort from "./pages/Cohort";
+import AdminPage from "./pages/AdminPage"; //TEST
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,15 +35,16 @@ function App() {
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
+          <Route path="/admin" element={<AdminPage user={user} />} /> //TEST
           <Route
             path="/dashboard"
             element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
           />
-
           <Route
             path="/login"
             element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
           />
+          <Route path="/cohort" element={<Cohort user={user} />} />
         </Routes>
       </div>
     </BrowserRouter>
