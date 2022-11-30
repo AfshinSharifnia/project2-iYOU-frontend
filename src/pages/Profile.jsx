@@ -6,6 +6,8 @@ const Profile = ({ user }) => {
   // loadingPage to check for fetch return before rendering textfields with defaultvalues
   const [loadingPage, setLoadingPage] = React.useState(true);
   const [answers, setAnswers] = React.useState({});
+  // FROM THE DATABASE: profileDB is the user object
+  // example: {profileDB.pronouns} would show pronouns
   const [profileDB, setProfileDB] = React.useState({});
 
   // ON LOAD, GET DB PROFILE AND POPULATE ANSWERS
@@ -26,6 +28,22 @@ const Profile = ({ user }) => {
     }
     getProfileDB();
   }, [user]);
+
+  // ICEBREAKER QUESTIONS ARRAY
+  const icebreakerQs = [
+    `What’s something new or interesting you’ve learned recently?`,
+    `What was your favorite recent meal and why?`,
+    `What’s your favorite self-care activity?`,
+    `Where did you grow up?`,
+    `What’s the best book you’ve ever read? Why?`,
+    `If you had to give a lecture on one thing, what would it be?`,
+    `What’s a favorite movie you always recommend to people? Why do you love it?`,
+    `What’s an unusual family or cultural tradition you have?`,
+    `What’s something people don’t know about you?`,
+    `What’s one thing that brings you energy and joy?`,
+    `What’s the most interesting place you’ve ever done a virtual meeting from?`,
+    `What is your favorite smell and why?`,
+  ];
 
   return (
     <div className="student-profile py-4">
@@ -59,9 +77,9 @@ const Profile = ({ user }) => {
               <div className="card-body pt-0">
                 <table className="table table-bordered">
                   <tr>
-                    <th width="30%">Roll</th>
+                    <th width="30%">{icebreakerQs[0]}</th>
                     <td width="2%">:</td>
-                    <td>125</td>
+                    <td>{profileDB.q0}</td>
                   </tr>
                   <tr>
                     <th width="30%">Hometown</th>
@@ -92,17 +110,12 @@ const Profile = ({ user }) => {
             <div className="card shadow-sm">
               <div className="card-header bg-transparent border-0">
                 <h3 className="mb-0">
-                  <i class="far fa-clone pr-1"></i>Other Information
+                  <i class="far fa-clone pr-1"></i>Career Blueprint
                 </h3>
               </div>
 
               <div className="card-body pt-0">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <p>{profileDB.careerBlueprint}</p>
               </div>
             </div>
           </div>
