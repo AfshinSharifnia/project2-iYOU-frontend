@@ -47,7 +47,7 @@ function App() {
             path="/login"
             element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
           />
-          {/*<Route path="/cohort" element={<Cohort user={user} />} />*/}
+          <Route path="/cohort" element={<Cohort user={user} />} />
         </Routes>
       </div>
     </BrowserRouter>
