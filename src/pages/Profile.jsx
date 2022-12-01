@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./profile.css";
 import "../App.css";
+import { useParams } from "react-router-dom";
 
-const Profile = ({ user }) => {
+const Profile = ({ props }) => {
   // loadingPage to check for fetch return before rendering textfields with defaultvalues
   const [loadingPage, setLoadingPage] = React.useState(true);
   const [answers, setAnswers] = React.useState({});
   // FROM THE DATABASE: profileDB is the user object
   // example: {profileDB.pronouns} would show pronouns
   const [profileDB, setProfileDB] = React.useState({});
-
+  const params = useParams();
+  const basecampId = params.id;
+  console.log("id being passed: ", basecampId);
   // ON LOAD, GET DB PROFILE AND POPULATE ANSWERS
   useEffect(() => {
     async function getProfileDB() {
       console.log("getProfileDB called");
       const response = await fetch(
-        `/api/profile/myProfileDB?userId=${user.basecampId}`,
+        `/api/profile//profilePage?userId=${basecampId}`,
       );
       if (response.ok) {
         const profileDBData = await response.json();
@@ -27,7 +30,7 @@ const Profile = ({ user }) => {
       }
     }
     getProfileDB();
-  }, [user]);
+  }, []);
 
   // ICEBREAKER QUESTIONS ARRAY
   const icebreakerQs = [

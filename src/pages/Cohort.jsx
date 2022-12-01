@@ -7,6 +7,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const Cohort = ({ user }) => {
   const [profileList, setProfileList] = useState({});
@@ -46,11 +47,13 @@ const Cohort = ({ user }) => {
             <div>
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                  <img
-                    src={profileList[index].avatarURL}
-                    alt="avatar"
-                    className="avatar"
-                  />
+                  <Link to={`/profile/${profileList[index].basecampId}`}>
+                    <img
+                      src={profileList[index].avatarURL}
+                      alt="avatar"
+                      className="avatar"
+                    />
+                  </Link>
                 </ListItemAvatar>
                 <Box>{profileList[index].displayName}</Box>
               </ListItem>
