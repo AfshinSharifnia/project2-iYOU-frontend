@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
+import NappBar from "./components/AppBar";
 import Cohort from "./pages/Cohort";
 import AdminPage from "./pages/AdminPage"; //TEST
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {user ? <Navbar user={user} /> : <div />}
+        {user ? <NappBar user={user} /> : <div />}
         <Routes>
           <Route
             path="/"

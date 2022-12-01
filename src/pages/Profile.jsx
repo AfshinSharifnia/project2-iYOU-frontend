@@ -1,50 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./profile.css";
-import "../App.css";
+import React from "react";
 
-const Profile = ({ user }) => {
-  // loadingPage to check for fetch return before rendering textfields with defaultvalues
-  const [loadingPage, setLoadingPage] = React.useState(true);
-  const [answers, setAnswers] = React.useState({});
-  // FROM THE DATABASE: profileDB is the user object
-  // example: {profileDB.pronouns} would show pronouns
-  const [profileDB, setProfileDB] = React.useState({});
-
-  // ON LOAD, GET DB PROFILE AND POPULATE ANSWERS
-  useEffect(() => {
-    async function getProfileDB() {
-      console.log("getProfileDB called");
-      const response = await fetch(
-        `/api/profile/myProfileDB?userId=${user.basecampId}`,
-      );
-      if (response.ok) {
-        const profileDBData = await response.json();
-        setProfileDB(profileDBData);
-        console.log("getprofiledb response: ", profileDBData);
-        console.log(profileDB);
-        console.log(profileDB.firstName);
-        setLoadingPage(false);
-      }
-    }
-    getProfileDB();
-  }, [user]);
-
-  // ICEBREAKER QUESTIONS ARRAY
-  const icebreakerQs = [
-    `What’s something new or interesting you’ve learned recently?`,
-    `What was your favorite recent meal and why?`,
-    `What’s your favorite self-care activity?`,
-    `Where did you grow up?`,
-    `What’s the best book you’ve ever read? Why?`,
-    `If you had to give a lecture on one thing, what would it be?`,
-    `What’s a favorite movie you always recommend to people? Why do you love it?`,
-    `What’s an unusual family or cultural tradition you have?`,
-    `What’s something people don’t know about you?`,
-    `What’s one thing that brings you energy and joy?`,
-    `What’s the most interesting place you’ve ever done a virtual meeting from?`,
-    `What is your favorite smell and why?`,
-  ];
-
+const Profile = () => {
   return (
     <div className="student-profile py-4">
       <div className="container">
@@ -56,7 +12,7 @@ const Profile = ({ user }) => {
                   className="profile_img"
                   src="https://source.unsplash.com/600x300/?student"
                 />
-                <h3>{profileDB.displayName}</h3>
+                <h3>Chelsea Mansoff</h3>
               </div>
               <div className="card-body">
                 <p className="mb-0">
@@ -147,7 +103,12 @@ const Profile = ({ user }) => {
               </div>
 
               <div className="card-body pt-0">
-                <p>{profileDB.careerBlueprint}</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
               </div>
             </div>
           </div>
