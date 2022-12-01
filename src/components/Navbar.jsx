@@ -47,7 +47,7 @@ const Navbar = ({ user }) => {
             </Link>
           </li>
           <li className="listitem">
-            <Link className="link" to={"dashboard"}>
+            <Link className="link" to={`profile/${user.basecampId}`}>
               {userInfo.name}
             </Link>
           </li>
