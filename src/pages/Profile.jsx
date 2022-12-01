@@ -59,7 +59,7 @@ const Profile = ({ props }) => {
                   className="profile_img"
                   src="https://source.unsplash.com/600x300/?student"
                 />
-                <h3>Chelsea Mansoff</h3>
+                <h3>{profileDB.displayName}</h3>
               </div>
               <div className="card-body">
                 <p className="mb-0">
@@ -164,12 +164,7 @@ const Profile = ({ props }) => {
               </div>
 
               <div className="card-body pt-0">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <p>{profileDB.careerBlueprint}</p>
               </div>
             </div>
           </div>

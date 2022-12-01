@@ -52,6 +52,11 @@ const Navbar = ({ user }) => {
               Edit
             </Link>
           </li>
+          <li className="listitem">
+            <Link className="link" to="cohort">
+              Cohort
+            </Link>
+          </li>
           <li className="listitem" onClick={logout}>
             Logout
           </li>
