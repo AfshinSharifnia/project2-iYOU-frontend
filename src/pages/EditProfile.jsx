@@ -35,7 +35,8 @@ const EditProfile = ({ user }) => {
 
   // SAVE FUNCTION, GET ANSWERS AND UPDATE DB RECORD
   async function handleClick() {
-    // loading ? setLoading(false) : setLoading(true);
+    // AFTER FIRST SAVE, user will not be send to edit profile page after login
+    answers.firstLogin = "false";
     console.log(answers);
     for (const q in answers) {
       setLoading(false);
@@ -52,8 +53,6 @@ const EditProfile = ({ user }) => {
   /*
   TO DO:
 
-  - show edit page on first log in (after record is created)
-  - SECTIONS: User Info, Icebreaker Questions, Links and Career Blueprint
   - POSSIBLE** - photos upload??
 
   */
@@ -87,6 +86,27 @@ const EditProfile = ({ user }) => {
       autoComplete="off"
     >
       <h1>Edit Profile</h1>
+      {/* //SHOW THIS ON FIRST LOGIN (UNTIL FIRST SAVE) */}
+      {profileDB.firstLogin === "true" ? (
+        <div>
+          {" "}
+          <h3>
+            {" "}
+            Welcome to iYou, the <strong>Inception YOU</strong> social app.
+          </h3>
+          <p>
+            iYou gives you a place to share all about yourself AND learn about
+            your peers in the Inception U cohort and staff.{" "}
+          </p>
+          <p>
+            Below are some Icebreaker questions to answer and share, as well as
+            a chance to link to your LinkedIn, Github pages, as well as your
+            Lumina portrait. Enjoy!!
+          </p>{" "}
+        </div>
+      ) : (
+        <div />
+      )}
       <Box sx={{ "& > button": { m: 1 } }}>
         <LoadingButton
           size="small"
@@ -100,8 +120,31 @@ const EditProfile = ({ user }) => {
           Save
         </LoadingButton>
       </Box>
-
-      <h2>Links</h2>
+      <h2>Icebreaker Questions</h2>
+      <p>
+        Please take some time to answer the following questions. They will be
+        shared on your profile page.
+      </p>
+      {loadingPage ? (
+        <p>loading...</p>
+      ) : (
+        icebreakerQs.map((currQ, index) => (
+          <TextField
+            id={`q${index}`}
+            label={currQ}
+            maxRows={3}
+            defaultValue={profileDB[`q${index}`]}
+            // value={answers[`q${index}`]}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                [`q${index}`]: event.target.value,
+              }))
+            }
+          />
+        ))
+      )}
+      <h2>Links and more about {profileDB.firstName}</h2>
       {loadingPage ? (
         <p>loading...</p>
       ) : (
@@ -143,10 +186,10 @@ const EditProfile = ({ user }) => {
             }
           />
           <TextField
-            id={"basecampURL"}
-            label={"Basecamp URL"}
+            id={"pronouns"}
+            label={"Pronouns (ex. She/Her, They/Them, etc.)"}
             maxRows={3}
-            defaultValue={profileDB.basecampURL}
+            defaultValue={profileDB.pronouns}
             onChange={(event) =>
               setAnswers((answers) => ({
                 ...answers,
@@ -154,7 +197,19 @@ const EditProfile = ({ user }) => {
               }))
             }
           />
-          {/* <TextField
+          <TextField
+            id={"tagline"}
+            label={"Personal Tagline / Slogan"}
+            maxRows={3}
+            defaultValue={profileDB.tagline}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                basecampURL: event.target.value,
+              }))
+            }
+          />
+          <TextField
             id={"careerBlueprint"}
             label={"Lifepath Career Blueprint"}
             maxRows={30}
@@ -166,33 +221,8 @@ const EditProfile = ({ user }) => {
                 careerBlueprint: event.target.value,
               }))
             }
-          /> */}
-        </Box>
-      )}
-      <h2>Icebreaker Questions</h2>
-      <p>
-        Please take some time to answer the following questions. They will be
-        shared on your profile page.
-      </p>
-
-      {loadingPage ? (
-        <p>loading...</p>
-      ) : (
-        icebreakerQs.map((currQ, index) => (
-          <TextField
-            id={`q${index}`}
-            label={currQ}
-            maxRows={3}
-            defaultValue={profileDB[`q${index}`]}
-            // value={answers[`q${index}`]}
-            onChange={(event) =>
-              setAnswers((answers) => ({
-                ...answers,
-                [`q${index}`]: event.target.value,
-              }))
-            }
           />
-        ))
+        </Box>
       )}
     </Box>
   );

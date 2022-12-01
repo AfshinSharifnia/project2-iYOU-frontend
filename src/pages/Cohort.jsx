@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import { Box } from "@mui/system";
 
 const Cohort = ({ user }) => {
   const [profileList, setProfileList] = useState({});
@@ -25,28 +26,19 @@ const Cohort = ({ user }) => {
     }
     if (user) getProfileList();
   }, [user]);
-  const [userInfo, setUserInfo] = useState({});
-  useEffect(() => {
-    async function getInfo() {
-      console.log("getinfo called");
-      const response = await fetch(
-        // `http://localhost:4000/api/profile/myProfile`,
-        `/api/profile/myProfile?userId=${user.basecampId}`, //pass basecampID
-        // `/api/profile/myProfile`,
-      );
-      if (response.ok) {
-        const userInfoData = await response.json();
-        setUserInfo(userInfoData);
-        console.log("getinfo response: ", userInfoData);
-      }
-    }
-    if (user) getInfo();
-  }, [user]);
 
   return (
     <div>
       <h2>Cohort</h2>
-      <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+      <List
+        sx={{
+          width: "100%",
+          maxWidth: 360,
+          bgcolor: "background.paper",
+          // display: "flex",
+          // alignItems: "center",
+        }}
+      >
         {loadingPage ? (
           <p>loading...</p>
         ) : (
@@ -55,12 +47,12 @@ const Cohort = ({ user }) => {
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                   <img
-                    src={userInfo.avatar_url}
+                    src={profileList[index].avatarURL}
                     alt="avatar"
                     className="avatar"
                   />
                 </ListItemAvatar>
-                <p>{profileList[index].displayName}</p>
+                <Box>{profileList[index].displayName}</Box>
               </ListItem>
               <Divider variant="inset" component="li" />
             </div>
