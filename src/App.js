@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
+import NappBar from "./components/AppBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {user ? <Navbar user={user} /> : <div />}
+        {user ? <NappBar user={user} /> : <div />}
         <Routes>
           <Route
             path="/"
