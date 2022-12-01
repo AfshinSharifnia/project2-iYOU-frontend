@@ -8,9 +8,8 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
-//mport NappBar from "./components/AppBar";
-// import Cohort from "./pages/Cohort";
-// import AdminPage from "./pages/AdminPage"; //TEST
+import NappBar from "./components/AppBar";
+import Cohort from "./pages/Cohort";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,9 +34,9 @@ function App() {
             path="/"
             element={user ? <Navigate to="/dashboard" /> : <LandingPage />}
           />
-          <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
-          {/*<Route path="/admin" element={<AdminPage user={user} />} />*/}
+
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/about" element={<About />} />
           <Route
