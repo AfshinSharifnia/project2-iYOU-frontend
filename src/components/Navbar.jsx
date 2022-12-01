@@ -42,11 +42,20 @@ const Navbar = ({ user }) => {
         // IF USER IS LOGGED IN, SHOW AVATAR AND NAME
         <ul className="list">
           <li className="listitem">
-            <Link className="link" to="profile">
+            <Link className="link" to={`profile/${user.basecampId}`}>
               <img src={userInfo.avatar_url} alt="avatar" className="avatar" />
             </Link>
           </li>
-          <li className="listitem">{userInfo.name}</li>
+          <li className="listitem">
+            <Link className="link" to={"dashboard"}>
+              {userInfo.name}
+            </Link>
+          </li>
+          <li className="listitem">
+            <Link className="link" to="dashboard">
+              Dashboard
+            </Link>
+          </li>
           <li className="listitem">
             <Link className="link" to="edit">
               Edit

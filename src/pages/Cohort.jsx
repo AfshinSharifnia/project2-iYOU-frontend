@@ -55,7 +55,30 @@ const Cohort = ({ user }) => {
                     />
                   </Link>
                 </ListItemAvatar>
-                <Box>{profileList[index].displayName}</Box>
+                <Link
+                  className="link"
+                  to={`/profile/${profileList[index].basecampId}`}
+                >
+                  <Box>{profileList[index].displayName}</Box>
+                </Link>
+                <Typography
+                  sx={{ display: "block" }}
+                  component="span"
+                  variant="body2"
+                  color="text.secondary"
+                >
+                  <p></p>
+                  <p>
+                    {profileList[index].pronouns ? (
+                      <div>
+                        {" * "}
+                        {profileList[index].pronouns}
+                      </div>
+                    ) : (
+                      <div />
+                    )}
+                  </p>
+                </Typography>{" "}
               </ListItem>
               <Divider variant="inset" component="li" />
             </div>
