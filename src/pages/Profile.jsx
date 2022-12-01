@@ -55,10 +55,7 @@ const Profile = ({ props }) => {
           <div className="col-lg-4">
             <div className="card shadow-sm">
               <div className="card-header bg-transparent text-center">
-                <img
-                  className="profile_img"
-                  src="https://source.unsplash.com/600x300/?student"
-                />
+                <img className="profile_img" src={profileDB.avatarURL} />
                 <h3>{profileDB.displayName}</h3>
               </div>
               <div className="card-body">
