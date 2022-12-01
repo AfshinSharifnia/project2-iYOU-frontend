@@ -5,6 +5,8 @@
   color: white;
   align-items: center;
   display: flex;
+  justify-content: space-between;
+  padding: 12px;
 }
 
 .iyoulogo {
