@@ -9,9 +9,10 @@ const Profile = () => {
             <div className="card shadow-sm">
               <div className="card-header bg-transparent text-center">
                 <img
-                  className="profile_img"
-                  src="https://source.unsplash.com/600x300/?student"
-                />
+              
+                src={userInfo.avatar_url} alt="avatar" className="avatar" />
+
+                
                 <h3>Chelsea Mansoff</h3>
               </div>
               <div className="card-body">
