@@ -36,6 +36,8 @@ function App() {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
 
+          <Route path="/cohort" element={<Cohort user={user} />} />
+
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route
             path="/dashboard"

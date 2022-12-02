@@ -8,6 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
+import "./Cohort.css"
 
 const Cohort = ({ user }) => {
   const [profileList, setProfileList] = useState({});
@@ -31,15 +32,7 @@ const Cohort = ({ user }) => {
   return (
     <div>
       <h2>Cohort</h2>
-      <List
-        sx={{
-          width: "100%",
-          maxWidth: 360,
-          bgcolor: "background.paper",
-          // display: "flex",
-          // alignItems: "center",
-        }}
-      >
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} className="list">
         {loadingPage ? (
           <p>loading...</p>
         ) : (
@@ -48,7 +41,7 @@ const Cohort = ({ user }) => {
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                   <Link to={`/profile/${profileList[index].basecampId}`}>
-                    <img
+                    <Avatar
                       src={profileList[index].avatarURL}
                       alt="avatar"
                       className="avatar"

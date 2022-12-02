@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./profile.css";
 import "../App.css";
 import { useParams } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const Profile = ({ props }) => {
   // loadingPage to check for fetch return before rendering textfields with defaultvalues
@@ -49,13 +50,14 @@ const Profile = ({ props }) => {
   ];
 
   return (
+    <Box className="main-box">
     <div className="student-profile py-4">
       <div className="container">
         <div className="row">
           <div className="col-lg-4">
             <div className="card shadow-sm">
               <div className="card-header bg-transparent text-center">
-                <img className="profile_img" src={profileDB.avatarURL} />
+                <img className="profile_img" src={profileDB.avatarURL} alt="avatar" />
                 <h3>{profileDB.displayName}</h3>
               </div>
               <div className="card-body">
@@ -73,8 +75,8 @@ const Profile = ({ props }) => {
           <div className="col-lg-8">
             <div className="card shadow-sm">
               <div className="card-header bg-transparent border-0"></div>
-              <div className="card-body pt-0">
-                <table className="table table-bordered">
+              <div className="card-body-pt-0">
+                <table className="table-bordered">
                   <tr>
                     <th width="300%">{icebreakerQs[0]}</th>
                     <td width="10%">:</td>
@@ -168,6 +170,7 @@ const Profile = ({ props }) => {
         </div>
       </div>
     </div>
+    </Box>
   );
 };
 

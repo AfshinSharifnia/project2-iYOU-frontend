@@ -1,11 +1,9 @@
 body {
-    background: #b0ceb3;  
-    background: -webkit-linear-gradient(to right, #6fbde3, #c1d3c3);
-    background: linear-gradient(to right, #9fd4ee, #9bc29f); 
-    padding: 0;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    color: #000;
+    margin-top: 0;
+    background-image: url(../assets/images/PageBackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .student-profile .card {
@@ -16,7 +14,6 @@ body {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    margin: 10px auto;
     border: 10px solid #ccc;
     border-radius: 50%;
 }
@@ -37,4 +34,8 @@ body {
     font-size: 14px;
     padding: 5px 10px;
     color: #000;
+}
+
+.main-box {
+padding-top: 3%;
 }

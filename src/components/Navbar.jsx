@@ -66,8 +66,8 @@ const Navbar = ({ user }) => {
               Cohort
             </Link>
           </li>
-          <li className="listitem" onClick={logout}>
-            Logout
+          <li className="listitem" onClick={logout} to="/">
+            <Link className="link">Logout</Link>
           </li>
         </ul>
       ) : (

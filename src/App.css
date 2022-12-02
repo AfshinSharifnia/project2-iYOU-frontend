@@ -12,7 +12,7 @@
 .iyoulogo {
   height: 50px;
   width: 50px;
-  margin-left: 0%;
+  margin-left: 15px;
 }
 
 .logo {
@@ -200,31 +200,4 @@ input {
   bottom: 0;
   position: fixed;
   text-shadow: #222;
-}
-
-/***    Register Page     ***/
-#checkbox {
-  width: 1rem;
-}
-
-form span {
-  font-size: 0.8rem;
-}
-
-#reset_pass_lbl {
-  float: left;
-}
-
-.contact-iu-admin {
-color: #ffff;
-}
-
-/***    Home Page     ***/
-.home-page-title {
-  color: #222;
-}
-
-/* to fix centering issue on edit profile fields */
-.css-14lo706 {
-  text-align: left;
 }
