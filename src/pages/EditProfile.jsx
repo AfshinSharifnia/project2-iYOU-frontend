@@ -173,6 +173,7 @@ const EditProfile = ({ user }) => {
               }))
             }
           />
+
           <TextField
             id={"luminaURL"}
             label={"Lumina URL"}
@@ -185,6 +186,19 @@ const EditProfile = ({ user }) => {
               }))
             }
           />
+          <TextField
+            id={"basecampURL"}
+            label={"Basecamp URL"}
+            maxRows={3}
+            defaultValue={profileDB.basecampURL}
+            onChange={(event) =>
+              setAnswers((answers) => ({
+                ...answers,
+                basecampURL: event.target.value,
+              }))
+            }
+          />
+
           <TextField
             id={"pronouns"}
             label={"Pronouns (ex. She/Her, They/Them, etc.)"}
