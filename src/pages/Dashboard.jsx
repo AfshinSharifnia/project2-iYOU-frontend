@@ -58,6 +58,7 @@ const HeadStyle = {
   background: `url(${PageBackground})`,
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed'
 };
 
 export default Dashboard;

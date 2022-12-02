@@ -8,9 +8,6 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
-import NappBar from "./components/AppBar";
-import Cohort from "./pages/Cohort";
-import AdminPage from "./pages/AdminPage"; //TEST
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {user ? <NappBar user={user} /> : <div />}
+        {user ? <Navbar user={user} /> : <div />}
         <Routes>
           <Route
             path="/"
@@ -37,9 +34,8 @@ function App() {
           />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
-          <Route path="/admin" element={<AdminPage user={user} />} /> //TEST
+
           <Route path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="/about" element={<About />} />
           <Route
             path="/dashboard"
             element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
@@ -48,7 +44,7 @@ function App() {
             path="/login"
             element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
           />
-          <Route path="/cohort" element={<Cohort user={user} />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -5,6 +5,8 @@
   color: white;
   align-items: center;
   display: flex;
+  position: fixed;
+  width: 100vw;
 }
 
 .iyoulogo {
@@ -151,8 +153,8 @@ form {
   background: #f3f3f380;
   border: 1px solid #ddd;
   border-radius: 2px;
-  padding: 2rem;
-  margin: 2rem 0 1rem 0
+  padding: 4rem;
+  margin: 15rem 0 1rem 0
 }
 
 form label {
@@ -190,11 +192,16 @@ input {
   transition: all .5s
 }
 
-footer p {
-  margin: 0;
-  font-size: .9rem;
+.landing-footer {
+  font-size: 1.5rem;
   font-weight: 300;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgba(102, 16, 83, 0.698);
+  text-align: center;
+  width: 100vw;
+  bottom: 0;
+  position: fixed;
+  text-shadow: #222;
 }
 
 /***    Register Page     ***/
@@ -208,6 +215,10 @@ form span {
 
 #reset_pass_lbl {
   float: left
+}
+
+.contact-iu-admin {
+color: #ffff;
 }
 
 /***    Home Page     ***/

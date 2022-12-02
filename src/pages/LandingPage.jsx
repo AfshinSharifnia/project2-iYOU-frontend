@@ -7,20 +7,34 @@ import logo from '../assets/images/iYouLogo.png';
 
 export default function LandingPage() {
   return (
+    <div>
     <header style={HeaderStyle}>
       <box>
         <div>
           <img className='BackLogoStyle' src={logo} alt='logo' />
         </div>
-        <div className='buttons text-center'>
+      </box>
+      <div className='buttons text-center'>
           <Link to='/login'>
             <button className='primary-button'>
               log in
             </button>
           </Link>
         </div>
-      </box>
+      <div className='buttons text-center'>
+          <Link to='/about'>
+            <button className='primary-button'>
+              About Us
+            </button>
+          </Link>
+        </div>
+      <footer className='landing-footer'>
+     <p>iYOU ! is a social platform for InceptionU Cohorts to meet and connect.</p>
+     <p>Contact your InceptionU admin to gain access.</p>
+      </footer>
     </header>
+
+ </div>
   );
 }
 
