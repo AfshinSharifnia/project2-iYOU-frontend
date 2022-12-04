@@ -4,15 +4,17 @@ import BackgroundImage from "../assets/images/LoginBG.png";
 import Basecamp from "../img/bc3.png";
 import "../App.css";
 import Navbar from "../components/Navbar.jsx";
+import { Box } from "@mui/system";
 
 const SignInPage = ({ user }) => {
   const basecamp = () => {
     window.open("http://localhost:4000/api/auth/37signals", "_self");
   };
   return (
-    <header style={HeaderStyle}>
-      <Navbar user={user} />
-      <div className="text-center m-5-auto">
+    <div style={HeaderStyle}>
+      
+      <Navbar sx={{marginTop: '0'}} user={user} />
+      <Box sx={{paddingTop: '5%'}}>
         <h2>Sign in to iYOU!</h2>
         <form action="/dashboard">
           <p>
@@ -26,14 +28,14 @@ const SignInPage = ({ user }) => {
             </a>
           </p>
         </form>
-        <footer>
-          <p>Contact your InceptionU Admin to gain access</p>
-          <p>
-            <Link to="/">Back to Homepage</Link>.
-          </p>
-        </footer>
+        <p className="contact-iu-admin">Contact your InceptionU Admin to gain access</p>
+        <div className="buttons text-center">
+          <Link to="/">
+            <button className="primary-button">Back</button>
+          </Link>
+        </div>
+        </Box>
       </div>
-    </header>
   );
 };
 const HeaderStyle = {
@@ -43,5 +45,8 @@ const HeaderStyle = {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
+  backgroundAttachment: "fixed",
 };
 export default SignInPage;
+
+

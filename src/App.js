@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
+import Cohort from "./pages/Cohort";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,19 +33,21 @@ function App() {
             path="/"
             element={user ? <Navigate to="/dashboard" /> : <LandingPage />}
           />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/edit" element={<EditProfile user={user} />} />
+
+          <Route path="/cohort" element={<Cohort user={user} />} />
+
           <Route path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="/about" element={<About />} />
           <Route
             path="/dashboard"
             element={user ? <Dashboard user={user} /> : <Navigate to="/" />}
           />
-
           <Route
             path="/login"
             element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
           />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>
